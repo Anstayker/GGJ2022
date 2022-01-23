@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3290773104703581098}
   - component: {fileID: 3290773104703581099}
+  - component: {fileID: 5343317520498238197}
   m_Layer: 0
   m_Name: colored_transparent_241
   m_TagString: Untagged
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5343317520498238197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290773104703581097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62ede12461fe7e147b105230a6a800af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3290773104779672384
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +117,7 @@ GameObject:
   - component: {fileID: 6020103663155817792}
   - component: {fileID: 2219906303090032674}
   - component: {fileID: 9166632452853044455}
+  - component: {fileID: 3879887159080119197}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -225,6 +246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItem: {fileID: 0}
+--- !u!114 &3879887159080119197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290773104779672384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed5aa1d8d5fcb341ac5558fd8b26b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3290773106099549807
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3290773106184696433}
   - component: {fileID: 3290773106184696434}
+  - component: {fileID: 146335296155457062}
   m_Layer: 0
   m_Name: monochrome_transparent_241
   m_TagString: Untagged
@@ -354,3 +388,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &146335296155457062
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290773106184696432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c39692d347af9e243ae33107136ef709, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
