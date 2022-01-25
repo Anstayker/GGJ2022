@@ -235,6 +235,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6ad0186608f114d8eedc77b0f60956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
+  possibleDeadDrops:
+  - {fileID: 5469392274364506000, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  - {fileID: 5469392274364506000, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  - {fileID: 5469392274364506000, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  deadDropPercentage:
+  - 100
+  - 50
+  - 10
+  possibleHitDrops:
+  - {fileID: 5469392274364506000, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  - {fileID: 5469392274364506000, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  hitDropPercentage:
+  - 20
+  - 10
+  canDropOnHit: 1
 --- !u!1 &5226067517996274889
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class PlayerUseHand : MonoBehaviour {
         //TODO Esto se deberia hacer al equipar en el inventario
         if (currentItem) {
             currentItem = Instantiate(currentItem, _playerSprite.transform);
+            Destroy(currentItem.GetComponent<Pickable>());
             _isNewItem = true;
         }
 
@@ -33,7 +34,7 @@ public class PlayerUseHand : MonoBehaviour {
     public void ProcessUseHand(bool isUsingItem) {
         if (_isNewItem) {
             _weaponAnimatorColor = currentItem.ColorSpriteAnimator;
-            //_weaponAnimatorMono = currentItem.MonoSpriteAnimator;
+            _weaponAnimatorMono = currentItem.MonoSpriteAnimator;
             _isNewItem = false;
         }
         

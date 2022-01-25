@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour {
 
-    [SerializeField] private Pickable pickablePrefab;
+    [SerializeField] private PickableItem pickablePrefab;
 
     [SerializeField] private float pickupVelocity = 1.0f;
     
@@ -14,11 +14,19 @@ public class Pickable : MonoBehaviour {
     private Transform _playerPosition;
     private PlayerInventory _playerInventory;
     private bool _isPickingUp = false;
+    private LevelColorChange _level;
+    private SpriteController _spriteController;
     
     private void Start() {
         _collider2D = gameObject.AddComponent(typeof(CircleCollider2D)) as CircleCollider2D;
         _collider2D.isTrigger = true;
         _collider2D.radius = 20.0f;
+        _level = FindObjectOfType<LevelColorChange>();
+        _spriteController = transform.Find("Sprites").GetComponent<SpriteController>();
+        if (!_level.isColor) {
+            _spriteController.colorSprite.enabled = false;
+            _spriteController.monoSprite.enabled = true;
+        }
     }
 
     private void Update() {
@@ -50,11 +58,12 @@ public class Pickable : MonoBehaviour {
     }
 
     private void PickUp(PlayerInventory player) {
-        //Esto deberia destruir el item y añadir al inventario
         if (!_playerInventory.IsInventoryFull() && _isPickingUp) {
-            _playerInventory.PickupItem(pickablePrefab);
-            Destroy(this.gameObject);
+            _playerInventory.PickupItem(pickablePrefab.itemPrefab);
+            _level.levelObjects.Remove(_spriteController);
+            Destroy(gameObject);
         }
+        _isPickingUp = true;
     }
 
     

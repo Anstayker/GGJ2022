@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114efddc72088a4187c991590123057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickablePrefab: {fileID: 5469392274364505998}
-  pickupVelocity: 60
+  pickablePrefab: {fileID: 11400000, guid: 0b98df8258accb4459a6829e11f3a5a3, type: 2}
+  pickupVelocity: 80
 --- !u!1 &5469392275588626880
 GameObject:
   m_ObjectHideFlags: 0

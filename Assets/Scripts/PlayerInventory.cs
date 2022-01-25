@@ -21,7 +21,7 @@ public class PlayerInventory : MonoBehaviour {
 
     public bool IsInventoryFull() {
         for (int i = 0; i < inventoryItems.Length; i++) {
-            if (inventoryItems[i] == null) {
+            if (!inventoryItems[i]) {
                 return false;
             }
         }
@@ -46,7 +46,7 @@ public class PlayerInventory : MonoBehaviour {
         if (!isItemAdded) {
             //Find empty Slot
             while (emptyIndex == -1) {
-                if (inventoryItems[currentIndex] == null) {
+                if (!inventoryItems[currentIndex]) {
                     emptyIndex = currentIndex;
                 } else {
                     currentIndex++;
