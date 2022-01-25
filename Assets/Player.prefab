@@ -95,6 +95,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5c01f3ce-9f56-4eb6-a5ef-520c14b49f73
     m_ActionName: Player/UseHand[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2230440119036227876}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnOpenInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a37fef8c-4f86-491c-9dcf-caf38eb9a688
+    m_ActionName: Player/OpenInventory[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -194,6 +210,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _inventoryItemQuantity: 
 --- !u!1 &2230440120280302068
 GameObject:
   m_ObjectHideFlags: 0

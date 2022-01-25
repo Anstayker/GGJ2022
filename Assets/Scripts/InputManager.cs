@@ -19,4 +19,10 @@ public class InputManager : MonoBehaviour {
         _rawUseHand = value.ReadValueAsButton();
         GetComponent<PlayerUseHand>().ProcessUseHand(_rawUseHand);
     }
+
+    public void OnOpenInventory(InputAction.CallbackContext value) {
+        if (value.performed) {
+            GetComponent<PlayerInventory>().UseInventory();
+        }
+    }
 }

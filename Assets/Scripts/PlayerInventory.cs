@@ -6,18 +6,35 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour {
 
     public Pickable[] inventoryItems;
-    public int[] _inventoryItemQuantity;
+    public int[] inventoryItemQuantity;
 
-    /*
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.GetComponent<Pickable>()) {
-            Pickable pickableItem = other.GetComponent<Pickable>();
-            if (!IsInventoryFull()) {
-                PickupItem(pickableItem);
-            }
-        }
+    [SerializeField] private GameObject inventoryPanel;
+    
+    private bool _isInventoryOpen = false;
+    private Animator _inventoryUiAnimator;
+    private static readonly int IsInventoryOpen = Animator.StringToHash("isInventoryOpen");
+
+    private void Start() {
+        _inventoryUiAnimator = inventoryPanel.GetComponent<Animator>();
     }
-    */
+
+    public void UseInventory() {
+        if (!_isInventoryOpen) {
+            _isInventoryOpen = true;
+        } else {
+            _isInventoryOpen = false;
+        }
+        _inventoryUiAnimator.SetBool(IsInventoryOpen, _isInventoryOpen);
+        
+    }
+
+    private void OpenInventory() {
+        
+    }
+
+    private void CloseInventory() {
+        Debug.Log("Close inventory");
+    }
 
     public bool IsInventoryFull() {
         for (int i = 0; i < inventoryItems.Length; i++) {
@@ -37,7 +54,7 @@ public class PlayerInventory : MonoBehaviour {
         //Find if the item exist already
         for (int i = 0; i < inventoryItems.Length; i++) {
             if (newItem.Equals(inventoryItems[i])) {
-                _inventoryItemQuantity[i]++;
+                inventoryItemQuantity[i]++;
                 isItemAdded = true;
                 break;
             }
@@ -55,7 +72,7 @@ public class PlayerInventory : MonoBehaviour {
         
             //Add the new item
             inventoryItems[emptyIndex] = newItem;
-            _inventoryItemQuantity[emptyIndex]++;   
+            inventoryItemQuantity[emptyIndex]++;   
         }
 
     }
