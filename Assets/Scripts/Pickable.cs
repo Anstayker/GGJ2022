@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pickables;
 using UnityEngine;
 
 public class Pickable : MonoBehaviour {
 
-    [SerializeField] private PickableItem pickablePrefab;
+    public PickableItem pickableInfo;
 
     [SerializeField] private float pickupVelocity = 1.0f;
     
@@ -59,7 +60,7 @@ public class Pickable : MonoBehaviour {
 
     private void PickUp(PlayerInventory player) {
         if (!_playerInventory.IsInventoryFull() && _isPickingUp) {
-            _playerInventory.PickupItem(pickablePrefab.itemPrefab);
+            _playerInventory.PickupItem(pickableInfo.itemPrefab);
             _level.levelObjects.Remove(_spriteController);
             Destroy(gameObject);
         }

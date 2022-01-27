@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: Wood Item
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 5469392274364505998, guid: 95948df10f1a6f0468b9b7d84de172d5, type: 3}
+  inventorySprite: {fileID: -127964861533358578, guid: d40107c766226e047b8aace8777e73eb, type: 3}
+  spriteRotation: -45
+  itemName: Wood
+  itemDescription: 'Madera muy util para craftear herramientas.
+
+
+    Puede ser recolectada
+    cortando arboles'

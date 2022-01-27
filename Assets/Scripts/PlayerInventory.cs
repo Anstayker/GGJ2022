@@ -12,13 +12,16 @@ public class PlayerInventory : MonoBehaviour {
     
     private bool _isInventoryOpen = false;
     private Animator _inventoryUiAnimator;
+    private InventoryGrid _inventoryGrid;
     private static readonly int IsInventoryOpen = Animator.StringToHash("isInventoryOpen");
 
     private void Start() {
+        _inventoryGrid = FindObjectOfType<InventoryGrid>();
         _inventoryUiAnimator = inventoryPanel.GetComponent<Animator>();
     }
 
     public void UseInventory() {
+        _inventoryGrid.UpdateInventory();
         if (!_isInventoryOpen) {
             _isInventoryOpen = true;
         } else {
@@ -27,15 +30,7 @@ public class PlayerInventory : MonoBehaviour {
         _inventoryUiAnimator.SetBool(IsInventoryOpen, _isInventoryOpen);
         
     }
-
-    private void OpenInventory() {
-        
-    }
-
-    private void CloseInventory() {
-        Debug.Log("Close inventory");
-    }
-
+    
     public bool IsInventoryFull() {
         for (int i = 0; i < inventoryItems.Length; i++) {
             if (!inventoryItems[i]) {
@@ -74,7 +69,6 @@ public class PlayerInventory : MonoBehaviour {
             inventoryItems[emptyIndex] = newItem;
             inventoryItemQuantity[emptyIndex]++;   
         }
-
     }
 
 }

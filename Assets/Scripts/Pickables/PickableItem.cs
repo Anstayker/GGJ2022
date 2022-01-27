@@ -1,10 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
-public class PickableItem : ScriptableObject {
+namespace Pickables {
+    [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
+    public class PickableItem : ScriptableObject {
     
-    public Pickable itemPrefab;
+        public Pickable itemPrefab;
+        public Sprite inventorySprite;
+        public float spriteRotation;
 
+        public String itemName;
+        [TextArea]
+        public String itemDescription;
+
+    }
 }
