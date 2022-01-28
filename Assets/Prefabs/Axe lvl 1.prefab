@@ -274,5 +274,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114efddc72088a4187c991590123057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickablePrefab: {fileID: 8182926558125703696}
+  pickableInfo: {fileID: 11400000, guid: c2a7a562f788bc04e9d88fefc92cfd7f, type: 2}
   pickupVelocity: 1

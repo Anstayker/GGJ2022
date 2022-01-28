@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cc11a62318bba4a9e1e5c2f2329c7b, type: 3}
+  m_Name: Axe lvl 1
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 8182926558125703696, guid: 6d5c5d99c002aca44b96cef9b34007b5, type: 3}
+  inventorySprite: {fileID: 976895058829480617, guid: d40107c766226e047b8aace8777e73eb, type: 3}
+  spriteRotation: 0
+  itemType: 2
+  itemName: Axe lvl 1
+  itemDescription: Initial Axe

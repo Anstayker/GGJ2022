@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerUseHand : MonoBehaviour {
 
-    [SerializeField] private Weapon currentItem;
+    [SerializeField] private Pickable currentItem;
     
     private static readonly int UseHand = Animator.StringToHash("useHand");
     private static readonly int IsActive = Animator.StringToHash("isActive");
@@ -31,10 +31,21 @@ public class PlayerUseHand : MonoBehaviour {
 
     }
 
+    public void EquipItemInHand(Pickable newItem) {
+        if (currentItem != null) {
+            Destroy(currentItem.gameObject);
+        }
+        currentItem = Instantiate(newItem, _playerSprite.transform);
+        currentItem.GetComponent<Pickable>().enabled = false;
+        //Destroy(currentItem.GetComponent<Pickable>());
+        _isNewItem = true;
+    }
+
     public void ProcessUseHand(bool isUsingItem) {
         if (_isNewItem) {
-            _weaponAnimatorColor = currentItem.ColorSpriteAnimator;
-            _weaponAnimatorMono = currentItem.MonoSpriteAnimator;
+            Weapon weapon = currentItem.GetComponent<Weapon>();
+            _weaponAnimatorColor = weapon.ColorSpriteAnimator;
+            _weaponAnimatorMono = weapon.MonoSpriteAnimator;
             _isNewItem = false;
         }
         

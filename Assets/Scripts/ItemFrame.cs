@@ -11,6 +11,7 @@ public class ItemFrame : MonoBehaviour {
     [SerializeField] private Image selectFrame;
     [SerializeField] private Image itemSprite;
     public TextMeshProUGUI itemQuantity;
+    [SerializeField] private bool isEquipmentFrame = false;
     
     [HideInInspector] public PickableItem pickableItem;
 
@@ -31,12 +32,19 @@ public class ItemFrame : MonoBehaviour {
 
     public void UpdateItemFrame() {
         if (pickableItem == null) {
-            itemSprite.enabled = false;
-            itemQuantity.text = "";
+            if (!isEquipmentFrame) {
+                itemSprite.enabled = false;
+                itemQuantity.text = "";   
+            } else {
+                Color tmp = Color.white;
+                tmp.a = 0.47f;
+                itemSprite.color = tmp;
+            }
         } else {
             itemSprite.sprite = pickableItem.inventorySprite;
             itemSprite.transform.rotation = Quaternion.Euler(0,0, pickableItem.spriteRotation);
             itemSprite.enabled = true;
+            itemSprite.color = Color.white;
         }
     }
 
