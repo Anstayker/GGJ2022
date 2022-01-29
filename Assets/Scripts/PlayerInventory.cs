@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour {
     }
 
     public void UseInventory() {
+        RefreshInventory();
         _inventoryGrid.UpdateInventory();
         if (!_isInventoryOpen) {
             _isInventoryOpen = true;
@@ -68,6 +69,14 @@ public class PlayerInventory : MonoBehaviour {
             //Add the new item
             inventoryItems[emptyIndex] = newItem;
             inventoryItemQuantity[emptyIndex]++;   
+        }
+    }
+
+    public void RefreshInventory() {
+        for (int i = 0; i < inventoryItemQuantity.Length; i++) {
+            if (inventoryItemQuantity[i] == 0) {
+                inventoryItems[i] = null;
+            }
         }
     }
 

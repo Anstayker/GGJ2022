@@ -25,6 +25,12 @@ public class InventoryGrid : MonoBehaviour {
     [SerializeField] private ItemFrame bodyFrame;
     [SerializeField] private ItemFrame handsFrame;
     [SerializeField] private ItemFrame shoesFrame;
+
+    private ItemFrame handFrameInventory;
+    private ItemFrame headFrameInventory;
+    private ItemFrame bodyFrameInventory;
+    private ItemFrame handsFrameInventory;
+    private ItemFrame shoesFrameInventory;
     
     private void Start() {
         _playerInventory = FindObjectOfType<PlayerInventory>();
@@ -76,19 +82,26 @@ public class InventoryGrid : MonoBehaviour {
                     if (_itemSelected.pickableItem) {
                         _playerUseHand.EquipItemInHand(_itemSelected.pickableItem.itemPrefab);
                     }
-                    //TODO Quitar del inventario
+                    if (handFrameInventory) {
+                        handFrameInventory.EquipItemFrame(false);
+                    }
+                    handFrameInventory = _itemSelected;
+                    _itemSelected.EquipItemFrame(true);
                     handFrame.pickableItem = _itemSelected.pickableItem;
                     handFrame.UpdateItemFrame();
                     break;
+                case ItemType.Head:
+                    break;
+                case ItemType.Body:
+                    break;
+                case ItemType.Hands:
+                    break;
+                case ItemType.Shoes:
+                    break;
+                case ItemType.Consumable:
+                    //TODO Activar efecto de item:
+                    break;
             }       
-        }
-    }
-
-    //TODO DELETE ME
-    private void test(ItemType itemType) {
-        switch (itemType) {
-            case ItemType.Material:
-                break;
         }
     }
 

@@ -12,6 +12,7 @@ public class ItemFrame : MonoBehaviour {
     [SerializeField] private Image itemSprite;
     public TextMeshProUGUI itemQuantity;
     [SerializeField] private bool isEquipmentFrame = false;
+    [SerializeField] private Image equipSprite;
     
     [HideInInspector] public PickableItem pickableItem;
 
@@ -46,6 +47,10 @@ public class ItemFrame : MonoBehaviour {
             itemSprite.enabled = true;
             itemSprite.color = Color.white;
         }
+    }
+
+    public void EquipItemFrame(bool isEquiped) {
+        equipSprite.enabled = isEquiped;
     }
 
 }
