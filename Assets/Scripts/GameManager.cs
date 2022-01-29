@@ -11,10 +11,12 @@ public class GameManager : StateMachine {
     public PlayerMovement player;
     [HideInInspector] public InputManager inputManager;
     [HideInInspector] public PlayerInventory playerInventory;
+    [HideInInspector] public PlayerMovement playerMovement;
     
     private void Awake() {
         inputManager = player.GetComponent<InputManager>();
         playerInventory = player.GetComponent<PlayerInventory>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         
         playingState = new PlayingState(this);
         pauseState = new PauseState(this);

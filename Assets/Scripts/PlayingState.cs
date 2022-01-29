@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayingState : State {
-    
+
+    private GameManager _gameManager;
+
     private InputManager _inputManager;
     private PlayerInventory _playerInventory;
-    private GameManager _gameManager;
 
     public PlayingState(GameManager gameManager) : base(gameManager) {
         _gameManager = ((GameManager) StateMachine);

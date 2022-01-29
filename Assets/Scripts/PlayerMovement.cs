@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour {
     private Animator _animatorMono;
     private static readonly int Velocity = Animator.StringToHash("velocity");
 
+    public bool canMove = true;
+    
     private void Start() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _inputManager = GetComponent<InputManager>();
@@ -26,7 +28,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        ProcessMovement(_inputManager.InputMovement);
+        if (canMove) {
+            ProcessMovement(_inputManager.InputMovement);
+        } else {
+            _rigidbody2D.velocity = Vector2.zero;
+        }
     }
 
     private void ProcessMovement(Vector2 inputMovement) {
