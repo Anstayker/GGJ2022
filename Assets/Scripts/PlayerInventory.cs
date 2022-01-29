@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour {
 
     [SerializeField] private GameObject inventoryPanel;
     
-    private bool _isInventoryOpen = false;
+    [HideInInspector] public bool isInventoryOpen = false;
     private Animator _inventoryUiAnimator;
     private InventoryGrid _inventoryGrid;
     private static readonly int IsInventoryOpen = Animator.StringToHash("isInventoryOpen");
@@ -23,12 +23,12 @@ public class PlayerInventory : MonoBehaviour {
     public void UseInventory() {
         RefreshInventory();
         _inventoryGrid.UpdateInventory();
-        if (!_isInventoryOpen) {
-            _isInventoryOpen = true;
+        if (!isInventoryOpen) {
+            isInventoryOpen = true;
         } else {
-            _isInventoryOpen = false;
+            isInventoryOpen = false;
         }
-        _inventoryUiAnimator.SetBool(IsInventoryOpen, _isInventoryOpen);
+        _inventoryUiAnimator.SetBool(IsInventoryOpen, isInventoryOpen);
         
     }
     
