@@ -22,6 +22,10 @@ public class GameManager : StateMachine {
         pauseState = new PauseState(this);
     }
 
+    public EnemyMovement[] FindAllEnemies() {
+        return FindObjectsOfType<EnemyMovement>();
+    }
+    
     protected override State GetInitialState() {
         return playingState;
     }

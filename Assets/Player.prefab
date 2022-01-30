@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2230440119907714669}
   - component: {fileID: 2230440119907714666}
   - component: {fileID: 6993697423226526059}
+  - component: {fileID: 2648286792069565456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5927adb69e33b034992288ed7a3a1f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
 --- !u!114 &2230440119907714669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 100
   maxSpeed: 100
+  canMove: 1
 --- !u!114 &2230440119907714666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +225,21 @@ MonoBehaviour:
   - {fileID: 0}
   inventoryItemQuantity: 010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   inventoryPanel: {fileID: 0}
+  isInventoryOpen: 0
+--- !u!114 &2648286792069565456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230440119907714667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4c250b77012654ca049d5cdfff6b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  inmunityTime: 2
 --- !u!1 &2230440120280302068
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +311,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -7209463506862590434, guid: d40107c766226e047b8aace8777e73eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

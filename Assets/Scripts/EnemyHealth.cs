@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class EnemyHealth : MonoBehaviour {
     
     public int health = 5;
+
+    [SerializeField] private bool isObstacle; 
     //private int _maxHealth = 10;
 
     [SerializeField] private GameObject[] possibleDeadDrops;
@@ -26,17 +28,26 @@ public class EnemyHealth : MonoBehaviour {
 
     public void ReduceHealth(int damageTaken) {
         health -= damageTaken;
-        TakeDamage();
+        if (isObstacle) { 
+            TakeDamageAsObstacle();
+        } else {
+            TakeDamageAsEnemy();
+        }
+
         if (health == 0) {
             KillEnemy();
         }
     }
 
-    private void TakeDamage() {
+    private void TakeDamageAsObstacle() {
         StartCoroutine(Tremble());
         if (canDropOnHit) {
             RandomDropGenerator(possibleHitDrops, hitDropPercentage);   
         }
+    }
+
+    private void TakeDamageAsEnemy() {
+        
     }
 
     private void KillEnemy() {
@@ -67,7 +78,7 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     IEnumerator Tremble() {
-        for ( int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             gameObject.transform.localPosition += new Vector3(_trembleIntensity, 0, 0);
             yield return new WaitForSeconds(0.01f);
             gameObject.transform.localPosition -= new Vector3(_trembleIntensity, 0, 0);
@@ -75,7 +86,7 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
-    Vector3 RandomCircle ( Vector3 center ,   float radius  ){
+    Vector3 RandomCircle (Vector3 center , float radius){
         float ang = Random.value * 360;
         Vector3 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);

@@ -8,6 +8,7 @@ public class PauseState : State {
     private PlayerInventory _playerInventory;
     private GameManager _gameManager;
     private PlayerMovement _playerMovement;
+    private EnemyMovement[] _enemies;
     
     public PauseState(GameManager gameManager) : base(gameManager) {
         _gameManager = ((GameManager) StateMachine);
@@ -19,6 +20,10 @@ public class PauseState : State {
     public override void Enter() {
         _playerMovement.canMove = false;
         _inputManager.isGamePaused = true;
+        _enemies = _gameManager.FindAllEnemies();
+        foreach (EnemyMovement enemy in _enemies) {
+            enemy.isGamePaused = true;
+        }
     }
 
     public override void UpdateLogic() {
@@ -29,5 +34,9 @@ public class PauseState : State {
 
     public override void Exit() {
         _playerMovement.canMove = true;
+        foreach (EnemyMovement enemy in _enemies) {
+            enemy.UnPauseMovement();
+            enemy.isGamePaused = false;
+        }
     }
 }
